@@ -1,4 +1,5 @@
 import "../css/loginPage.css";
+import bgImage from "../assets/Assignment.png";
 import React from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
@@ -7,7 +8,7 @@ const LoginPage = () => {
         <Box
             sx={{
                 height: '100vh', display: 'flex', paddingLeft: 30,
-                flexDirection: 'column', justifyContent: 'center'
+                justifyContent: 'space-around', alignItems: 'center'
             }}
         >
             <Box>
@@ -24,6 +25,9 @@ const LoginPage = () => {
 
                     <MySubmitButton text='LOGIN' />
                 </Box>
+            </Box>
+            <Box>
+                <img src={bgImage} height="700px" />
             </Box>
         </Box>
 
