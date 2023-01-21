@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import React from 'react'
-import AssignmentPage from './AssignmentPage';
 import DrawerComponent from './DrawerComponent';
+import SubmissionPage from './SubmissionPage';
 
 const DashboardMain = () => {
     return (
@@ -14,7 +14,7 @@ const DashboardMain = () => {
 
             <DrawerComponent />
 
-            <AssignmentPage />
+            <SubmissionPage />
         </Box>
     )
 }
