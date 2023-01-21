@@ -1,0 +1,23 @@
+[
+    {
+        "Id": 1,
+        "Title": "Assignment 1",
+        "Description": "This is ...",
+        "DueDate": "20-01-2023",
+        "Status": "Active"
+    },
+    {
+        "Id": 2,
+        "Title": "Assignment 2",
+        "Description": "This is ...",
+        "DueDate": "20-02-2023",
+        "Status": "Inctive"
+    },
+    {
+        "Id": 3,
+        "Title": "Assignment 3",
+        "Description": "This is ...",
+        "DueDate": "30-03-2023",
+        "Status": "Inctive"
+    }
+]

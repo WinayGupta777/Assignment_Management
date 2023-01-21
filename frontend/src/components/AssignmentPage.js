@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Divider, Typography, Paper, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button, IconButton, Toolbar } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import TableData from "../json/TableData.json";
 
 const AssignmentPage = () => {
     const drawerSpace = "350px";
@@ -41,34 +42,37 @@ const AssignmentTable = () => {
                     <TableHead>
                         <TableRow>
                             {["Id", "Title", "Description", "Due Date", "Status", "Actions"].map((value, key) => (
-                                <TableCell key={key} style={{ fontSize: '20px' }}>{value}</TableCell>
+                                <TableCell key={key} style={{ fontSize: '25px' }}>{value}</TableCell>
                             ))}
                         </TableRow>
                     </TableHead>
 
                     <TableBody>
-                        <TableRow>
-                            <TableCell style={{ width: '5%' }}>1</TableCell>
-                            <TableCell style={{ width: '15%' }}>Assignment 1</TableCell>
-                            <TableCell style={{ width: '20%' }}>This is ....</TableCell>
-                            <TableCell style={{ width: '10%' }}>20-01-2023</TableCell>
-                            <TableCell style={{ width: '10%' }}>Inactive</TableCell>
-                            <TableCell style={{ width: '10%' }}>
-                                <Box
-                                    sx={{
-                                        display: 'flex', justifyContent: 'space-between', width: '55%',
-                                    }}
-                                >
-                                    <IconButton edge={false}>
-                                        <EditIcon />
-                                    </IconButton>
-                                    <Divider orientation='vertical' flexItem />
-                                    <IconButton>
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </Box>
-                            </TableCell>
-                        </TableRow>
+                        {TableData.map((value, key) => (
+
+                            <TableRow key={key}>
+                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.Id}</TableCell>
+                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.Title}</TableCell>
+                                <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.Description}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.DueDate}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px', color: value.Status == "Active" ? 'yellow' : 'red' }}>⦿ {value.Status}</TableCell>
+                                <TableCell style={{ width: '10%' }}>
+                                    <Box
+                                        sx={{
+                                            display: 'flex', justifyContent: 'space-between', width: '55%',
+                                        }}
+                                    >
+                                        <IconButton>
+                                            <EditIcon />
+                                        </IconButton>
+                                        <Divider orientation='vertical' flexItem />
+                                        <IconButton>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </Box>
+                                </TableCell>
+                            </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer>
