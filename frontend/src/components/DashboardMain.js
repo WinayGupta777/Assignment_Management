@@ -1,6 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import React from 'react'
 import DrawerComponent from './DrawerComponent';
+import EmptyPage from './EmptyPage';
 
 const DashboardMain = () => {
     return (
@@ -12,6 +13,8 @@ const DashboardMain = () => {
             </AppBar>
 
             <DrawerComponent />
+
+            <EmptyPage />
         </Box>
     )
 }
