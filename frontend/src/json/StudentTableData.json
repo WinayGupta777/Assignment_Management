@@ -1,0 +1,17 @@
+[
+    {
+        "Id": 1,
+        "StudentName": "Vinay Gupta",
+        "StudentEmail": "vinay.gupta8101@gmail.com"
+    },
+    {
+        "Id": 2,
+        "StudentName": "Bharat Solanki",
+        "StudentEmail": "sola1234@gmail.com"
+    },
+    {
+        "Id": 3,
+        "StudentName": "Rahul B",
+        "StudentEmail": "rb100@gmail.com"
+    }
+]
