@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import PeopleIcon from '@mui/icons-material/People';
 
-const DrawerComponent = () => {
+const TeacherDrawer = () => {
   const drawerWidth = 350;
+  const navigate = useNavigate();
 
   return (
     <Drawer
@@ -20,7 +22,7 @@ const DrawerComponent = () => {
       <Box>
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate("assignment")}>
               <ListItemIcon>
                 <ContentPasteIcon />
               </ListItemIcon>
@@ -31,7 +33,7 @@ const DrawerComponent = () => {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate("submission")} >
               <ListItemIcon>
                 <FileUploadIcon />
               </ListItemIcon>
@@ -42,7 +44,7 @@ const DrawerComponent = () => {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate("student")}>
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
@@ -58,4 +60,4 @@ const DrawerComponent = () => {
   )
 }
 
-export default DrawerComponent;
+export default TeacherDrawer;

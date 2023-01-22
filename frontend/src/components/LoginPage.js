@@ -27,7 +27,7 @@ const LoginPage = () => {
                 </Box>
             </Box>
             <Box>
-                <img src={bgImage} height="700px" />
+                <img src={bgImage} alt="Tag" height="700px" />
             </Box>
         </Box>
 

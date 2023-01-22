@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Divider, Typography, Paper, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button, IconButton, Toolbar } from '@mui/material';
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import TableData from "../json/TableData.json";
+import TableData from "../../json/TableData.json";
 
 const AssignmentPage = () => {
     const drawerSpace = "350px";
@@ -35,7 +35,7 @@ export default AssignmentPage;
 const AssignmentTable = () => {
     return (
         <Box
-            sx={{ flex: 1, mt: 2, backgroundColor: 'black' }}
+            sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
         >
             <TableContainer>
                 <Table aria-label="simple table">
@@ -55,7 +55,7 @@ const AssignmentTable = () => {
                                 <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.Title}</TableCell>
                                 <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.Description}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.DueDate}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px', color: value.Status == "Active" ? 'yellow' : 'red' }}>⦿ {value.Status}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px', color: value.Status === "Active" ? 'yellow' : 'red' }}>⦿ {value.Status}</TableCell>
                                 <TableCell style={{ width: '10%' }}>
                                     <Box
                                         sx={{

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
-import TableData from "../json/StudentTableData.json";
+import TableData from "../../json/SubmissionTableData.json";
 
-const StudentPage = () => {
+const SubmissionPage = () => {
     const drawerSpace = "350px";
     const AppbarSpace = "64px";
     return (
@@ -19,29 +19,28 @@ const StudentPage = () => {
                     backgroundColor: '#272727', borderRadius: 2
                 }}
             >
-                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Students</Typography>
+                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Submissions</Typography>
                 <Divider />
 
-                <StudentTable />
+                <SubmissionTable />
             </Box>
         </Box>
     )
 }
 
-export default StudentPage;
+export default SubmissionPage;
 
 
-
-const StudentTable = () => {
-  return (
-    <Box
+const SubmissionTable = () => {
+    return (
+        <Box
             sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
         >
             <TableContainer>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {["Id", "Student name", "Student email"].map((value, key) => (
+                            {["Id", "Submission name", "Submitted by", "Grades"].map((value, key) => (
                                 <TableCell key={key} style={{ fontSize: '25px' }}>{value}</TableCell>
                             ))}
                         </TableRow>
@@ -52,13 +51,14 @@ const StudentTable = () => {
 
                             <TableRow key={key}>
                                 <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.Id}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.StudentName}</TableCell>
-                                <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.StudentEmail}</TableCell>
+                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.SubmissionOf}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.SubmittedBy}</TableCell>
+                                <TableCell style={{ width: '30%', fontSize: '20px' }}>{value.Grades}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
         </Box>
-  )
+    )
 };
