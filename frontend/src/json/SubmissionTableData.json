@@ -1,0 +1,20 @@
+[
+    {
+        "Id": 1,
+        "SubmissionOf": "Assignment 1",
+        "SubmittedBy": "Vinay Gupta",
+        "Grades": 10
+    },
+    {
+        "Id": 2,
+        "SubmissionOf": "Assignment 3",
+        "SubmittedBy": "Bharat Solanki",
+        "Grades": 8
+    },
+    {
+        "Id": 3,
+        "SubmissionOf": "Assignment 2",
+        "SubmittedBy": "Rahul B",
+        "Grades": 5
+    }
+]
