@@ -7,6 +7,9 @@ import TeacherDashboard from "./components/teacher/TeacherDashboard";
 import StudentPage from "./components/teacher/StudentPage";
 import SubmissionPage from "./components/teacher/SubmissionPage";
 import AssignmentPage from "./components/teacher/AssignmentPage";
+import StudentDashboard from "./components/student/StudentDashboard";
+import AssignmentPageS from "./components/student/AssignmentPage";
+import SubmissionPageS from "./components/student/SubmissionPage";
 
 const darkTheme = createTheme({
   palette: { mode: 'dark' }
@@ -26,6 +29,10 @@ function App() {
                 <Route path="assignment" element={<AssignmentPage />} />
                 <Route path="submission" element={<SubmissionPage />} />
                 <Route path="student" element={<StudentPage />} />
+              </Route>
+              <Route path="/student" element={<StudentDashboard />} >
+                <Route path="assignment" element={<AssignmentPageS />} />
+                <Route path="submission" element={<SubmissionPageS />} />
               </Route>
             </Routes>
           </Router>
