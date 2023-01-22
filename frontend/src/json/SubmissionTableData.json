@@ -7,13 +7,13 @@
     },
     {
         "Id": 2,
-        "SubmissionOf": "Assignment 3",
+        "SubmissionOf": "Assignment 1",
         "SubmittedBy": "Bharat Solanki",
         "Grades": 8
     },
     {
         "Id": 3,
-        "SubmissionOf": "Assignment 2",
+        "SubmissionOf": "Assignment 1",
         "SubmittedBy": "Rahul B",
         "Grades": 5
     }
