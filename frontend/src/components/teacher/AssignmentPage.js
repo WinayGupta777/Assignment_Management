@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton } from '@mui/material';
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import TableData from "../../json/TableData.json";
@@ -17,14 +17,30 @@ const AssignmentPage = () => {
         >
             <Box
                 sx={{
-                    mt: 3, ml: 3, mr: 3, height: `calc(95vh - ${AppbarSpace})`,
+                    mt: 3, ml: 3, mr: 3,
+                    display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+                    height: `calc(95vh - ${AppbarSpace})`,
                     backgroundColor: '#272727', borderRadius: 2
                 }}
             >
-                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Assignments</Typography>
-                <Divider />
+                {/* Title - Divider - Table */}
+                <Box>
+                    <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Assignments</Typography>
+                    <Divider />
 
-                <AssignmentTable />
+                    <AssignmentTable />
+                </Box>
+
+                {/* Button */}
+                <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'center' }}>
+
+                    <Button variant='outlined'
+                        sx={{ '&:hover': { color: '#ffa500', borderColor: '#ffa500' } }}
+                    >
+                        Create Assignment
+                    </Button>
+                </Box>
+
             </Box>
         </Box>
     )
