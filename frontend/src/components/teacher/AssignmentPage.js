@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton, Button } from '@mui/material';
-import { Delete, Edit, AddBox } from '@mui/icons-material';
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton } from '@mui/material';
+import { Delete, Edit } from '@mui/icons-material';
 import TableData from "../../json/TableData.json";
+import CreateAssignment from './CreateAssignment';
 
 const AssignmentPage = () => {
     const drawerSpace = "350px";
@@ -31,15 +32,7 @@ const AssignmentPage = () => {
                 </Box>
 
                 {/* Button */}
-                <Box sx={{ marginBottom: 5, display: 'flex', justifyContent: 'center' }}>
-
-                    <Button variant='outlined'
-                        startIcon={<AddBox sx={{ height: 35, width: 35 }} />}
-                        sx={{ '&:hover': { color: '#ffa500', borderColor: '#ffa500' } }}
-                    >
-                        Create Assignment
-                    </Button>
-                </Box>
+                <CreateAssignment />
 
             </Box>
         </Box>
