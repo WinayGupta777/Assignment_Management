@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "assignments": [
+    {
+      "title": "Assignment 1",
+      "description": "This is ... ",
+      "duedate": "20-01-2023",
+      "status": true,
+      "id": 1
+    },
+    {
+      "title": "Assignment 3",
+      "description": "This is ... ",
+      "duedate": "21-01-2023",
+      "status": false,
+      "id": 2
+    }
+  ]
+}
