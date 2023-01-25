@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton, Button } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import { Delete, Edit, AddBox } from '@mui/icons-material';
 import TableData from "../../json/TableData.json";
 
 const AssignmentPage = () => {
@@ -32,9 +31,10 @@ const AssignmentPage = () => {
                 </Box>
 
                 {/* Button */}
-                <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'center' }}>
+                <Box sx={{ marginBottom: 5, display: 'flex', justifyContent: 'center' }}>
 
                     <Button variant='outlined'
+                        startIcon={<AddBox sx={{ height: 35, width: 35 }} />}
                         sx={{ '&:hover': { color: '#ffa500', borderColor: '#ffa500' } }}
                     >
                         Create Assignment
@@ -78,12 +78,12 @@ const AssignmentTable = () => {
                                             display: 'flex', justifyContent: 'space-between', width: '55%',
                                         }}
                                     >
-                                        <IconButton>
-                                            <EditIcon />
+                                        <IconButton >
+                                            <Edit />
                                         </IconButton>
                                         <Divider orientation='vertical' flexItem />
-                                        <IconButton>
-                                            <DeleteIcon />
+                                        <IconButton color='error'>
+                                            <Delete />
                                         </IconButton>
                                     </Box>
                                 </TableCell>
