@@ -19,16 +19,16 @@
   "assignments": [
     {
       "title": "Assignment 1",
-      "description": "This is ... ",
-      "duedate": "20-01-2023",
-      "status": true,
+      "description": "Do180 exam",
+      "duedate": "2023-01-28",
+      "status": "true",
       "id": 1
     },
     {
-      "title": "Assignment 3",
-      "description": "This is ... ",
-      "duedate": "21-01-2023",
-      "status": false,
+      "title": "Assignment 2",
+      "description": "Do288 Exam",
+      "duedate": "2023-02-28",
+      "status": "false",
       "id": 2
     }
   ]

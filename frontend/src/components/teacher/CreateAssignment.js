@@ -2,14 +2,15 @@ import "../../css/createAssignmentDialog.css";
 import React from 'react';
 import { AddBox } from '@mui/icons-material'
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from '@mui/material'
+import axios from "axios";
 
-const CreateAssignment = () => {
+const CreateAssignment = (props) => {
     const [open, setOpen] = React.useState(false);
     const [formData, setFormData] = React.useState({
         title: '',
         description: '',
         duedate: new Date().toISOString().substr(0, 10),
-        status: true
+        status: 'true'
     });
 
     const handleClickOpen = () => { setOpen(true); };
@@ -26,6 +27,12 @@ const CreateAssignment = () => {
         event.preventDefault();
         console.log(formData);
         // code to submit form data to the server
+        axios.post("http://localhost:4000/assignments", formData)
+            .then((res) => {
+                console.log("Data added successfully !!");
+                props.getAssignmentData();
+                handleClose();
+            }).catch((err) => console.log);
     }
 
     return (
@@ -75,9 +82,9 @@ const CreateAssignment = () => {
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
                                 <FormLabel sx={{ fontSize: 20, mr: 2 }}>Status: </FormLabel>
-                                <RadioGroup row defaultValue="male" onChange={handleChange} name="status">
-                                    <FormControlLabel value="male" control={<Radio sx={{ '&.Mui-checked': { color: 'orange' } }} />} label="Active" />
-                                    <FormControlLabel value="female" control={<Radio />} label="Inactive" />
+                                <RadioGroup row defaultValue={true} onChange={handleChange} >
+                                    <FormControlLabel name="status" value={true} control={<Radio sx={{ '&.Mui-checked': { color: 'orange' } }} />} label="Active" />
+                                    <FormControlLabel name="status" value={false} control={<Radio />} label="Inactive" />
                                 </RadioGroup>
                             </Box>
                         </DialogContent>

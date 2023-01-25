@@ -6,11 +6,19 @@ import axios from 'axios';
 
 
 const AssignmentPage = () => {
+    const [formData, setFormData] = React.useState([]);
+
+    const getAssignments = () => {
+        axios.get("http://localhost:4000/assignments")
+            .then((res) => {
+                console.log("GET: ", res.data);
+                setFormData(res.data);
+            })
+            .catch((err) => console.log);
+    }
 
     const drawerSpace = "350px";
     const AppbarSpace = "64px";
-
-
     return (
         <Box
             component="main"
@@ -33,11 +41,11 @@ const AssignmentPage = () => {
                     <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Assignments</Typography>
                     <Divider />
 
-                    <AssignmentTable />
+                    <AssignmentTable getAssignmentData={getAssignments} fdata={formData}/>
                 </Box>
 
                 {/* Button */}
-                <CreateAssignment />
+                <CreateAssignment getAssignmentData={getAssignments} />
 
             </Box>
         </Box>
@@ -46,24 +54,26 @@ const AssignmentPage = () => {
 
 export default AssignmentPage;
 
-const AssignmentTable = () => {
-    const [formData, setFormData] = React.useState([]);
+const AssignmentTable = (props) => {
+    const [dataLoaded, setDataLoaded] = React.useState(false);
+    // const [formData, setFormData] = React.useState([]);
 
 
-    const getAssignments = () => {
-        axios.get("http://localhost:4000/assignments")
-            .then((res) => {
-                console.log("GET: ", res.data);
-                setFormData(res.data);
-            })
-            .catch((err) => console.log);
-    }
-
+    // const getAssignments = () => {
+    //     axios.get("http://localhost:4000/assignments")
+    //         .then((res) => {
+    //             console.log("GET: ", res.data);
+    //             setFormData(res.data);
+    //         })
+    //         .catch((err) => console.log);
+    // }
 
     React.useEffect(() => {
-        getAssignments();
-    }, []);
-
+        if (!dataLoaded) {
+            props.getAssignmentData();
+            setDataLoaded(true);
+        }
+    }, [dataLoaded, props]);
 
 
     return (
@@ -81,15 +91,15 @@ const AssignmentTable = () => {
                     </TableHead>
 
                     <TableBody>
-                        {formData.map((value, key) => (
+                        {props.fdata.map((value, key) => (
 
                             <TableRow key={key}>
                                 <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.id}</TableCell>
                                 <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.title}</TableCell>
                                 <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.description}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.duedate}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px', color: value.status ? '#66FF00' : 'white' }}>
-                                    {value.status ? "⦿ Active" : "Inactive"}
+                                <TableCell style={{ width: '10%', fontSize: '20px', color: JSON.parse(value.status) ? '#66FF00' : 'white' }}>
+                                    {JSON.parse(value.status) ? "⦿ Active" : "Inactive"}
                                 </TableCell>
                                 <TableCell style={{ width: '10%' }}>
                                     <Box
