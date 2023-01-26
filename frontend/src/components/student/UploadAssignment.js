@@ -1,9 +1,9 @@
-import React from 'react';
-import { Upload } from '@mui/icons-material';
+import React, { useEffect } from 'react';
 import { Box, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, FormControlLabel, TextField } from '@mui/material';
+import { Edit, Upload } from '@mui/icons-material';
 import axios from 'axios';
 
-const UploadAssignment = (props) => {
+const UploadAssignment =  (props) => {
     const [open, setOpen] = React.useState(false);
     const [formData, setFormData] = React.useState({
         id: props.row.id,
@@ -33,13 +33,35 @@ const UploadAssignment = (props) => {
             }).catch((err) => console.log);
     }
 
+    const [submissionDone, setSubmissionDone] = React.useState(false);
+
+    useEffect(() => {
+        const checkSubmission = async () => {
+            try {
+                const res = await axios.get("http://localhost:4000/submissions");
+                if (res.data.some(obj => obj.id === props.row.id)) {
+                    setSubmissionDone(true);
+                } else {
+                    setSubmissionDone(false);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        checkSubmission();
+    }, [props.row.id])
+    
+    
     return (
         <>
             <Box
                 sx={{ display: 'flex', justifyContent: 'space-between' }}
             >
                 {JSON.parse(props.row.status) ?
-                    <Button onClick={handleClickOpen}> Upload &nbsp; <Upload /> </Button> :
+                    (submissionDone ?
+                        <Button onClick={handleClickOpen}> Edit &nbsp; <Edit /> </Button> :
+                        <Button onClick={handleClickOpen}> Upload &nbsp; <Upload /> </Button>
+                    ) :
                     <Button disabled> Upload &nbsp; <Upload /> </Button>}
             </Box>
 

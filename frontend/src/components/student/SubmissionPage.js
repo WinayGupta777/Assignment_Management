@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button } from '@mui/material';
-import TableData from "../../json/SubmissionTableData.json";
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
 import axios from 'axios';
 
 const SubmissionPageS = () => {
@@ -62,7 +61,7 @@ const SubmissionTableS = (props) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {["Id", "Submission name", "Content", "Grades", "Actions"].map((value, key) => (
+                            {["Id", "Submission name", "Content", "Grades"].map((value, key) => (
                                 <TableCell key={key} style={{ fontSize: '25px' }}>{value}</TableCell>
                             ))}
                         </TableRow>
@@ -76,11 +75,11 @@ const SubmissionTableS = (props) => {
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.subName}</TableCell>
                                 <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.content}</TableCell>
                                 <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.grades}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px' }}>
+                                {/* <TableCell style={{ width: '10%', fontSize: '20px' }}>
                                     <Box sx={{ display: 'flex', ml: -1 }} >
                                         <Button>Update</Button>
                                     </Box>
-                                </TableCell>
+                                </TableCell> */}
                             </TableRow>
                         ))}
                     </TableBody>
