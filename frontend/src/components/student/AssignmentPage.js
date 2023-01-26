@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button } from '@mui/material';
-import { Upload } from '@mui/icons-material';
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
 import axios from 'axios';
+import UploadAssignment from './UploadAssignment';
 
 const AssignmentPageS = () => {
     const [formData, setFormData] = React.useState([]);
@@ -54,9 +54,9 @@ const AssignmentTableS = (props) => {
         }
     }, [dataLoaded, props]);
 
-    const onUploadClick = (id) => {
-        console.log("Upload Clicked: ",id);
-    }
+    // const onUploadClick = (id) => {
+    //     console.log("Upload Clicked: ",id);
+    // }
     return (
         <Box
             sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
@@ -84,15 +84,7 @@ const AssignmentTableS = (props) => {
                                     {JSON.parse(value.status) ? "⦿ Active" : "Inactive"}
                                 </TableCell>
                                 <TableCell style={{ width: '10%' }}>
-                                    <Box
-                                        sx={{
-                                            display: 'flex', justifyContent: 'space-between'
-                                        }}
-                                    >
-                                        {JSON.parse(value.status) ?
-                                            <Button onClick={()=>onUploadClick(value.id)}> Upload &nbsp; <Upload /> </Button> :
-                                            <Button disabled> Upload &nbsp; <Upload /> </Button>}
-                                    </Box>
+                                    <UploadAssignment row={value} />
                                 </TableCell>
                             </TableRow>
                         ))}

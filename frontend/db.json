@@ -35,6 +35,11 @@
     }
   ],
   "submissions": [
-    
+    {
+      "id": 1,
+      "subName": "Assignment  1",
+      "content": "I am uploading here",
+      "student": "Vinay Gupta"
+    }
   ]
 }
