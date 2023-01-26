@@ -10,7 +10,8 @@ const CreateAssignment = (props) => {
         title: '',
         description: '',
         duedate: new Date().toISOString().substr(0, 10),
-        status: 'true'
+        status: 'true',
+        teacher: 'Dr. Nikhil' // This name will be set when Teacher logins
     });
 
     const handleClickOpen = () => { setOpen(true); };

@@ -19,10 +19,19 @@
   "assignments": [
     {
       "title": "Assignment 1",
-      "description": "Do180 exam",
+      "description": "Complete Today !!",
       "duedate": "2023-01-26",
       "status": "true",
+      "teacher": "Dr. Nikhil",
       "id": 1
+    },
+    {
+      "title": "Assignment 2",
+      "description": "No man",
+      "duedate": "2023-01-31",
+      "status": "false",
+      "teacher": "Dr. Nikhil",
+      "id": 2
     }
   ]
 }

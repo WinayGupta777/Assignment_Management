@@ -2,8 +2,19 @@ import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button } from '@mui/material';
 import { Upload } from '@mui/icons-material';
 import TableData from "../../json/TableData.json";
+import axios from 'axios';
 
 const AssignmentPageS = () => {
+    const [formData, setFormData] = React.useState([]);
+
+    const getAssignments = () => {
+        axios.get("http://localhost:4000/assignments")
+            .then((res) => setFormData(res.data))
+            .catch((err) => console.log);
+    }
+
+
+
     const drawerSpace = "350px";
     const AppbarSpace = "64px";
     return (
@@ -23,7 +34,10 @@ const AssignmentPageS = () => {
                 <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Assignments</Typography>
                 <Divider />
 
-                <AssignmentTableS />
+                <AssignmentTableS
+                    getAssignmentData={getAssignments}
+                    fdata={formData}
+                />
             </Box>
         </Box>
     )
@@ -31,7 +45,16 @@ const AssignmentPageS = () => {
 
 export default AssignmentPageS;
 
-const AssignmentTableS = () => {
+const AssignmentTableS = (props) => {
+    const [dataLoaded, setDataLoaded] = React.useState(false);
+
+    React.useEffect(() => {
+        if (!dataLoaded) {
+            props.getAssignmentData();
+            setDataLoaded(true);
+        }
+    }, [dataLoaded, props]);
+
     return (
         <Box
             sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
@@ -47,31 +70,33 @@ const AssignmentTableS = () => {
                     </TableHead>
 
                     <TableBody>
-                        {TableData.map((value, key) => (
+                        {props.fdata.map((value, key) => (
 
                             <TableRow key={key}>
-                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.Id}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.Title}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.Description}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.Teacher}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.DueDate}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px', color: value.Status === "Active" ? 'yellow' : 'red' }}>⦿ {value.Status}</TableCell>
+                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.id}</TableCell>
+                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.title}</TableCell>
+                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.description}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.teacher}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.duedate}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px', color: JSON.parse(value.status) ? '#66FF00' : 'white' }}>
+                                    {JSON.parse(value.status) ? "⦿ Active" : "Inactive"}
+                                </TableCell>
                                 <TableCell style={{ width: '10%' }}>
                                     <Box
                                         sx={{
                                             display: 'flex', justifyContent: 'space-between'
                                         }}
                                     >
-                                        {value.Status === "Active" ?
+                                        {JSON.parse(value.status) ?
                                             <Button> Upload &nbsp; <Upload /> </Button> :
                                             <Button disabled> Upload &nbsp; <Upload /> </Button>}
                                     </Box>
                                 </TableCell>
                             </TableRow>
                         ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Box>
+                </TableBody>
+            </Table>
+        </TableContainer>
+        </Box >
     )
 };
