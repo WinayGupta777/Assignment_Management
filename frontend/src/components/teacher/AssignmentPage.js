@@ -10,10 +10,13 @@ const AssignmentPage = () => {
 
     const getAssignments = () => {
         axios.get("http://localhost:4000/assignments")
-            .then((res) => {
-                console.log("GET: ", res.data);
-                setFormData(res.data);
-            })
+            .then((res) => setFormData(res.data))
+            .catch((err) => console.log);
+    }
+
+    const deleteAssignment = (id) => {
+        axios.delete(`http://localhost:4000/assignments/${id}`)
+            .then((res) => console.log("Assignment deleted !!"))
             .catch((err) => console.log);
     }
 
@@ -41,7 +44,11 @@ const AssignmentPage = () => {
                     <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Assignments</Typography>
                     <Divider />
 
-                    <AssignmentTable getAssignmentData={getAssignments} fdata={formData}/>
+                    <AssignmentTable
+                        deleteAssignment={deleteAssignment}
+                        getAssignmentData={getAssignments}
+                        fdata={formData}
+                    />
                 </Box>
 
                 {/* Button */}
@@ -75,6 +82,14 @@ const AssignmentTable = (props) => {
         }
     }, [dataLoaded, props]);
 
+    const onDeleteClick = (id) => {
+        // Delete Assignment
+        props.deleteAssignment(id);
+        // Refresh List
+        setDataLoaded(false);
+        props.getAssignmentData();
+        setDataLoaded(true);
+    }
 
     return (
         <Box
@@ -111,7 +126,7 @@ const AssignmentTable = (props) => {
                                             <Edit />
                                         </IconButton>
                                         <Divider orientation='vertical' flexItem />
-                                        <IconButton color='error'>
+                                        <IconButton color='error' onClick={() => onDeleteClick(value.id)}>
                                             <Delete />
                                         </IconButton>
                                     </Box>
