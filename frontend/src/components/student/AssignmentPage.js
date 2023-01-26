@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Button } from '@mui/material';
 import { Upload } from '@mui/icons-material';
-import TableData from "../../json/TableData.json";
 import axios from 'axios';
 
 const AssignmentPageS = () => {
@@ -55,6 +54,9 @@ const AssignmentTableS = (props) => {
         }
     }, [dataLoaded, props]);
 
+    const onUploadClick = (id) => {
+        console.log("Upload Clicked: ",id);
+    }
     return (
         <Box
             sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
@@ -88,15 +90,15 @@ const AssignmentTableS = (props) => {
                                         }}
                                     >
                                         {JSON.parse(value.status) ?
-                                            <Button> Upload &nbsp; <Upload /> </Button> :
+                                            <Button onClick={()=>onUploadClick(value.id)}> Upload &nbsp; <Upload /> </Button> :
                                             <Button disabled> Upload &nbsp; <Upload /> </Button>}
                                     </Box>
                                 </TableCell>
                             </TableRow>
                         ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </Box >
     )
 };

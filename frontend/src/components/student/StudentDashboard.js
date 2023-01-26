@@ -1,5 +1,5 @@
+import React from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
-import React from 'react'
 import { Outlet } from 'react-router-dom';
 import StudentDrawer from './StudentDrawer';
 import EmptyPage from '../EmptyPage';
