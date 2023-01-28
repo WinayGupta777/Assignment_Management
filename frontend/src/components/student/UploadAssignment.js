@@ -11,7 +11,7 @@ const UploadAssignment = (props) => {
         subName: '',
         grades: 0,
         content: '',
-        student: 'Vinay Gupta' // This name will be set when Teacher logins
+        doneBy: 'Vinay Gupta' // This name will be set when Student logins
     });
     const [editedFormData, setEditedFormData] = React.useState({
         id: props.row.id,

@@ -1,8 +1,18 @@
 import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
 import TableData from "../../json/SubmissionTableData.json";
+import axios from 'axios';
 
 const SubmissionPage = () => {
+    const [formData, setFormData] = React.useState([]);
+
+    const getSubmissions = () => {
+        axios.get("http://localhost:4000/submissions")
+            .then((res) => setFormData(res.data))
+            .catch((err) => console.log);
+    }
+
+
     const drawerSpace = "350px";
     const AppbarSpace = "64px";
     return (
@@ -19,10 +29,13 @@ const SubmissionPage = () => {
                     backgroundColor: '#272727', borderRadius: 2
                 }}
             >
-                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Submissions</Typography>
+                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>View Submissions</Typography>
                 <Divider />
 
-                <SubmissionTable />
+                <SubmissionTable 
+                    getSubmissionData={getSubmissions}
+                    fdata={formData}
+                />
             </Box>
         </Box>
     )
@@ -31,7 +44,16 @@ const SubmissionPage = () => {
 export default SubmissionPage;
 
 
-const SubmissionTable = () => {
+const SubmissionTable = (props) => {
+    const [dataLoaded, setDataLoaded] = React.useState(false);
+
+    React.useEffect(() => {
+        if (!dataLoaded) {
+            props.getSubmissionData();
+            setDataLoaded(true);
+        }
+    }, [dataLoaded, props]);
+
     return (
         <Box
             sx={{ flex: 1, margin: '20px 20px', borderRadius: '5px', backgroundColor: 'black' }}
@@ -40,20 +62,21 @@ const SubmissionTable = () => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {["Id", "Submission name", "Submitted by", "Grades"].map((value, key) => (
+                            {["Id", "Submission name", "Content", "Submitted by", "Grades"].map((value, key) => (
                                 <TableCell key={key} style={{ fontSize: '25px' }}>{value}</TableCell>
                             ))}
                         </TableRow>
                     </TableHead>
 
                     <TableBody>
-                        {TableData.map((value, key) => (
+                        {props.fdata.map((value, key) => (
 
                             <TableRow key={key}>
-                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.Id}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.SubmissionOf}</TableCell>
-                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.SubmittedBy}</TableCell>
-                                <TableCell style={{ width: '30%', fontSize: '20px' }}>{value.Grades}</TableCell>
+                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.id}</TableCell>
+                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.subName}</TableCell>
+                                <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.content}</TableCell>
+                                <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.doneBy}</TableCell>
+                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.grades}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
