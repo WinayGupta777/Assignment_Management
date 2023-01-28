@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
-import TableData from "../../json/SubmissionTableData.json";
 import axios from 'axios';
 
 const SubmissionPage = () => {

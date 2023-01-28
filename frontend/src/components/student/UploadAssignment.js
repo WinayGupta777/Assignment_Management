@@ -52,6 +52,7 @@ const UploadAssignment = (props) => {
             .then((res) => {
                 console.log("Data added successfully !!", res);
                 handleClose();
+                setSubmissionDone(true);
             }).catch((err) => console.log);
     }
 
@@ -81,7 +82,7 @@ const UploadAssignment = (props) => {
             }
         }
         checkSubmission();
-    }, [props.row.id])
+    }, [submissionDone ,props.row.id])
 
 
     return (

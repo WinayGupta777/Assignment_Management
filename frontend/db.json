@@ -37,10 +37,10 @@
   "submissions": [
     {
       "id": 1,
-      "subName": "A [Update 2]",
-      "content": "I am uploading here [Update 2]",
-      "grades": 10,
-      "student": "Vinay Gupta"
+      "subName": "Assignment  1",
+      "grades": 0,
+      "content": "Content uploaded.",
+      "doneBy": "Vinay Gupta"
     }
   ]
 }
