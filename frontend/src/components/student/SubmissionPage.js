@@ -28,7 +28,7 @@ const SubmissionPageS = () => {
                     backgroundColor: '#272727', borderRadius: 2
                 }}
             >
-                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Your Submissions</Typography>
+                <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>Your Grades</Typography>
                 <Divider />
 
                 <SubmissionTableS

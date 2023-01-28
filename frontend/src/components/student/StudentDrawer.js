@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
-import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
+import { Grade, ContentPaste } from '@mui/icons-material';
 
 const StudentDrawer = () => {
   const drawerWidth = 350;
@@ -23,7 +22,7 @@ const StudentDrawer = () => {
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("assignment")}>
               <ListItemIcon>
-                <ContentPasteIcon />
+                <ContentPaste />
               </ListItemIcon>
               <ListItemText
                 primary={<Typography sx={{ fontSize: 22 }}>Assignments</Typography>}
@@ -34,10 +33,10 @@ const StudentDrawer = () => {
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("submission")} >
               <ListItemIcon>
-                <FileUploadIcon />
+                <Grade />
               </ListItemIcon>
               <ListItemText
-                primary={<Typography sx={{ fontSize: 22 }}>Submissions</Typography>}
+                primary={<Typography sx={{ fontSize: 22 }}>View grades</Typography>}
               />
             </ListItemButton>
           </ListItem>
