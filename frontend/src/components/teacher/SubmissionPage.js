@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
+import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody, IconButton } from '@mui/material';
 import axios from 'axios';
+import GiveGrades from './GiveGrades';
 
 const SubmissionPage = () => {
     const [formData, setFormData] = React.useState([]);
@@ -31,7 +32,7 @@ const SubmissionPage = () => {
                 <Typography variant='h3' sx={{ p: 1, pl: 3, fontFamily: 'Poppins' }}>View Submissions</Typography>
                 <Divider />
 
-                <SubmissionTable 
+                <SubmissionTable
                     getSubmissionData={getSubmissions}
                     fdata={formData}
                 />
@@ -75,7 +76,9 @@ const SubmissionTable = (props) => {
                                 <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.subName}</TableCell>
                                 <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.content}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.doneBy}</TableCell>
-                                <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.grades}</TableCell>
+                                <TableCell style={{ width: '5%', fontSize: '20px' }}>
+                                    <GiveGrades row={value} />
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

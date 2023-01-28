@@ -9,14 +9,14 @@ const UploadAssignment = (props) => {
     const [formData, setFormData] = React.useState({
         id: props.row.id,
         subName: '',
-        grades: 0,
+        grades: '',
         content: '',
         doneBy: 'Vinay Gupta' // This name will be set when Student logins
     });
     const [editedFormData, setEditedFormData] = React.useState({
         id: props.row.id,
         subName: '',
-        grades: 0,
+        grades: '',
         content: '',
     });
 
