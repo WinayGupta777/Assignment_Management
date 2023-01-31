@@ -27,6 +27,7 @@ const GiveGrades = (props) => {
 
     const handleClickOpen = async () => {
         const res = await axios.get('http://localhost:4000/submissions/' + props.row.id);
+        setGradeData(res.data);
         setOpen(true);
     };
     const handleClose = () => { setOpen(false); };

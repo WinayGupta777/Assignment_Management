@@ -46,14 +46,14 @@
     {
       "id": 1,
       "subName": "Assignment  1",
-      "grades": "",
+      "grades": "2",
       "content": "Content uploaded.",
       "doneBy": "Vinay Gupta"
     },
     {
       "id": 3,
       "subName": "Submission of 3rd",
-      "grades": "6",
+      "grades": "5",
       "content": "Here I am",
       "doneBy": "Vinay Gupta"
     }
