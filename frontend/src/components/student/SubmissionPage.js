@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Typography, Table, TableCell, TableContainer, TableHead, TableRow, TableBody } from '@mui/material';
 import axios from 'axios';
 
-const SubmissionPageS = () => {
+const GradesPage = () => {
     const [formData, setFormData] = React.useState([]);
 
     const getSubmissions = () => {
@@ -40,7 +40,7 @@ const SubmissionPageS = () => {
     )
 }
 
-export default SubmissionPageS;
+export default GradesPage;
 
 
 const SubmissionTableS = (props) => {

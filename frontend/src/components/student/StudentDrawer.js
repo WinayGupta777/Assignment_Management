@@ -31,7 +31,7 @@ const StudentDrawer = () => {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton onClick={() => navigate("submission")} >
+            <ListItemButton onClick={() => navigate("grades")} >
               <ListItemIcon>
                 <Grade />
               </ListItemIcon>
