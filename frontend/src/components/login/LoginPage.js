@@ -1,8 +1,9 @@
 import "../../css/loginPage.css";
 import bgImage from "../../assets/Assignment.png";
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import CustomTextField from "./CustomTextField";
+import CustomSubmitButton from "./CustomSubmitButton";
 
 const LoginPage = () => {
     return (
@@ -24,7 +25,7 @@ const LoginPage = () => {
                     <CustomTextField myLabel='Email' type='text' />
                     <CustomTextField myLabel='Password' type='password' />
 
-                    <MySubmitButton text='LOGIN' />
+                    <CustomSubmitButton text='LOGIN' />
                 </Box>
             </Box>
             <Box>
@@ -36,22 +37,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage;
-
-
-const MySubmitButton = (props) => {
-    return (
-        <>
-            <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                disableElevation
-                sx={{
-                    mt: 3, backgroundColor: 'orange', width: '100%',
-                    '&:hover': { backgroundColor: '#FF8C27' },
-                    fontSize: '20px'
-                }}
-            ><b>{props.text}</b></Button>
-        </>
-    )
-};
