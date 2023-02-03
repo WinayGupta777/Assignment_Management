@@ -1,21 +1,20 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Abc",
+      "email": "abc@g.com",
+      "password": "admin",
+      "role": "teacher"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "Pqr",
+      "email": "pqr@g.com",
+      "password": "admin123",
+      "role": "student"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "assignments": [
     {
       "title": "Assignment 1",

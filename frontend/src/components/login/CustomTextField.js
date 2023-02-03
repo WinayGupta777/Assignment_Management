@@ -9,9 +9,11 @@ const CustomTextField = (props) => {
         fullWidth
         required
         type={props.type}
+        name={props.type} // required
         inputProps={{
             style: { fontFamily: 'Poppins' }
         }}
+        onChange={props.onInputChanged}
     />
 </>
   )
