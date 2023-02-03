@@ -1,12 +1,15 @@
 import "../../css/loginPage.css";
 import bgImage from "../../assets/Assignment.png";
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Alert, Box, Snackbar, Typography } from '@mui/material';
 import CustomTextField from "./CustomTextField";
 import CustomSubmitButton from "./CustomSubmitButton";
 import axios from "axios";
 
 const LoginPage = () => {
+    const [openSnack, setOpenSnack] = React.useState(false);
+    const [messageSnack, setMessageSnack] = React.useState("");
+    const [dynamicSeverity, setDynamicSeverity] = React.useState("success");
     const [creds, setCreds] = React.useState({
         email: "",
         password: ""
@@ -22,21 +25,26 @@ const LoginPage = () => {
     const onFormSubmitted = async (event) => {
         event.preventDefault();
         // code to send data to server & check for auth
+
         const res = await axios.get("http://localhost:4000/users");
         if (res.data.some(obj => obj.email === creds.email)) {
             const user = res.data.find(obj => obj.email === creds.email);
             if (user && user.password === creds.password) {
-                // success: email exists and password matches
-                console.log("Pass matched !");
+                setMessageSnack("Pass Matched!");
+                setDynamicSeverity("success");
+                setOpenSnack(true);
             } else {
-                // failure: password doesn't match
-                console.log("Pass Not Matched !");
+                setMessageSnack("Incorrect password!");
+                setDynamicSeverity("warning");
+                setOpenSnack(true);
             }
         } else {
-            // failure: email doesn't exist
-            console.log("Email not exists !");
+            setMessageSnack("Email doesn't exists!");
+            setDynamicSeverity("error");
+            setOpenSnack(true);
         }
     }
+
     return (
         <Box
             sx={{
@@ -66,6 +74,18 @@ const LoginPage = () => {
                     />
 
                     <CustomSubmitButton text='LOGIN' />
+
+
+                    <Snackbar
+                        open={openSnack}
+                        autoHideDuration={6000}
+                        onClose={() => setOpenSnack(false)}
+                        sx={{ transform: 'scale(1.4)', ml: 5, mb: 2 }}
+                    >
+                        <Alert severity={dynamicSeverity} variant="outlined" >
+                            {messageSnack}
+                        </Alert>
+                    </Snackbar>
                 </Box>
             </Box>
             <Box>
