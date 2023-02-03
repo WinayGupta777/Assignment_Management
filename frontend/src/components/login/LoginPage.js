@@ -1,5 +1,4 @@
 import "../../css/loginPage.css";
-import bgImage from "../../assets/Assignment.png";
 import React from 'react';
 import { Alert, Box, Snackbar, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -57,18 +56,18 @@ const LoginPage = () => {
     return (
         <Box
             sx={{
-                height: '100vh', display: 'flex', paddingLeft: 30,
-                justifyContent: 'space-around', alignItems: 'center'
+                height: '100vh', display: 'flex',
+                justifyContent: 'center', alignItems: 'center'
             }}
         >
-            <Box>
+            <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
                 <Typography className="gradient-text" sx={{ fontSize: '58px', fontWeight: '600', fontFamily: 'Poppins' }}>Welcome back!</Typography>
                 <Typography sx={{ fontSize: '28px', fontFamily: 'Poppins' }}>Login to access your account.</Typography>
 
                 <Box
                     component="form"
                     autoComplete="off"
-                    sx={{ display: 'flex', flexDirection: 'column', width: '400px', mt: 10 }}
+                    sx={{ display: 'flex', flexDirection: 'column', width: '400px', mt: 8 }}
                     onSubmit={onFormSubmitted}
                 >
                     <CustomTextField
@@ -97,9 +96,7 @@ const LoginPage = () => {
                     </Snackbar>
                 </Box>
             </Box>
-            <Box>
-                <img src={bgImage} alt="Tag" height="700px" />
-            </Box>
+            
         </Box>
 
     )
