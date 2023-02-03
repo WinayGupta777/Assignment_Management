@@ -1,7 +1,8 @@
 import "../../css/loginPage.css";
 import bgImage from "../../assets/Assignment.png";
 import React from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
+import CustomTextField from "./CustomTextField";
 
 const LoginPage = () => {
     return (
@@ -20,8 +21,8 @@ const LoginPage = () => {
                     autoComplete="off"
                     sx={{ display: 'flex', flexDirection: 'column', width: '400px', mt: 10 }}
                 >
-                    <MyTextField myLabel='Email' type='text' />
-                    <MyTextField myLabel='Password' type='password' />
+                    <CustomTextField myLabel='Email' type='text' />
+                    <CustomTextField myLabel='Password' type='password' />
 
                     <MySubmitButton text='LOGIN' />
                 </Box>
@@ -35,23 +36,6 @@ const LoginPage = () => {
 }
 
 export default LoginPage;
-
-
-const MyTextField = (props) => {
-    return (
-        <>
-            <Typography sx={{ fontSize: '20px', fontWeight: 400, mb: 1, mt: 1 }}>{props.myLabel} *</Typography>
-            <TextField
-                fullWidth
-                required
-                type={props.type}
-                inputProps={{
-                    style: { fontFamily: 'Poppins' }
-                }}
-            />
-        </>
-    )
-};
 
 
 const MySubmitButton = (props) => {
