@@ -2,7 +2,7 @@ import "./App.css";
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, Paper, createTheme } from '@mui/material';
-import LoginPage from "./components/LoginPage";
+import LoginPage from "./components/login/LoginPage";
 import TeacherDashboard from "./components/teacher/TeacherDashboard";
 import StudentPage from "./components/teacher/StudentPage";
 import SubmissionPage from "./components/teacher/SubmissionPage";

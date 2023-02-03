@@ -1,5 +1,5 @@
-import "../css/loginPage.css";
-import bgImage from "../assets/Assignment.png";
+import "../../css/loginPage.css";
+import bgImage from "../../assets/Assignment.png";
 import React from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
