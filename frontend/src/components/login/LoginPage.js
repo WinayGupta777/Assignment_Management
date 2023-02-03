@@ -2,11 +2,13 @@ import "../../css/loginPage.css";
 import bgImage from "../../assets/Assignment.png";
 import React from 'react';
 import { Alert, Box, Snackbar, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import CustomTextField from "./CustomTextField";
 import CustomSubmitButton from "./CustomSubmitButton";
 import axios from "axios";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [openSnack, setOpenSnack] = React.useState(false);
     const [messageSnack, setMessageSnack] = React.useState("");
     const [dynamicSeverity, setDynamicSeverity] = React.useState("success");
@@ -33,6 +35,13 @@ const LoginPage = () => {
                 setMessageSnack("Pass Matched!");
                 setDynamicSeverity("success");
                 setOpenSnack(true);
+
+                setTimeout(() => {
+                    user.role === "teacher" ?
+                        navigate("/teacher")
+                        : navigate("/student");
+                }, 1000);
+
             } else {
                 setMessageSnack("Incorrect password!");
                 setDynamicSeverity("warning");
