@@ -76,8 +76,8 @@ const AssignmentTableS = (props) => {
 
                             <TableRow key={key}>
                                 <TableCell style={{ width: '5%', fontSize: '20px' }}>{value.id}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.title}</TableCell>
-                                <TableCell style={{ width: '15%', fontSize: '20px' }}>{value.description}</TableCell>
+                                <TableCell style={{ width: '12%', fontSize: '20px' }}>{value.title}</TableCell>
+                                <TableCell style={{ width: '20%', fontSize: '20px' }}>{value.description}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.teacher}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px' }}>{value.duedate}</TableCell>
                                 <TableCell style={{ width: '10%', fontSize: '20px', color: JSON.parse(value.status) ? '#66FF00' : 'white' }}>
