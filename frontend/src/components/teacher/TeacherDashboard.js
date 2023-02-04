@@ -1,5 +1,6 @@
+import React from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
-import React from 'react'
+import { AccountCircle } from '@mui/icons-material';
 import { Outlet } from 'react-router-dom';
 import TeacherDrawer from './TeacherDrawer';
 import EmptyPage from '../EmptyPage';
@@ -9,8 +10,14 @@ const TeacherDashboard = () => {
     return (
         <Box>
             <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-                <Toolbar>
-                    <Typography variant='h4'>Teacher Dashboard</Typography>
+            <Toolbar>
+                    <Typography variant='h4' sx={{ flexGrow: 1 }}>Teacher Dashboard</Typography>
+                    <Box sx={{display: 'flex', alignItems: 'center',p: 0.5,
+                    border: '1px solid #575757', backgroundColor: '#474747', borderRadius: 1,
+                }}>
+                        <AccountCircle sx={{ fontSize: 40 }} />
+                        <Typography sx={{ fontSize: 20, ml: 2, mr: 1 }}>Dr. Nikhil</Typography>
+                    </Box>
                 </Toolbar>
             </AppBar>
             <TeacherDrawer />
