@@ -1,8 +1,8 @@
 const initialState = {
     userInfo: {
-        name: 'Namor',
-        email: 'nmr@g.com',
-        role: 'fishKing'
+        name: '',
+        email: '',
+        role: ''
     }
 };
 

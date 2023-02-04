@@ -2,12 +2,15 @@ import "../../css/loginPage.css";
 import React from 'react';
 import { Alert, Box, Snackbar, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import setUser from "../../redux/currentUser/userAction";
 import CustomTextField from "./CustomTextField";
 import CustomSubmitButton from "./CustomSubmitButton";
 import axios from "axios";
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [openSnack, setOpenSnack] = React.useState(false);
     const [messageSnack, setMessageSnack] = React.useState("");
     const [dynamicSeverity, setDynamicSeverity] = React.useState("success");
@@ -34,7 +37,9 @@ const LoginPage = () => {
                 setMessageSnack("Pass Matched!");
                 setDynamicSeverity("success");
                 setOpenSnack(true);
-
+                // set user
+                dispatch(setUser({name: user.name, email: user.email, role: user.role}))
+                // navigate
                 setTimeout(() => {
                     user.role === "teacher" ?
                         navigate("/teacher")
