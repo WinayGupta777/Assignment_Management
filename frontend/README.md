@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Frontend Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Login Page
+> This is the `Login page` of the Application where User `(student & teacher)` can get access of their `Dashboard`.
 
-## Available Scripts
+![Login Page](https://user-images.githubusercontent.com/91736791/216770387-3a90896c-b0a7-4031-9cb4-1035705e8a3d.png)
 
-In the project directory, you can run:
+> ## Validation at Authentication
+> * If user with that `email does not exists`,
+> * If `password is wrong`,
+> * On `successful login`, the user data is checked with server. If user's role is `teacher`, then user will be redirected to `Teacher Dashboard`. Similarly, `student` will be redirected to `Student Dashboard`.
 
-### `npm start`
+![Alert Types](https://user-images.githubusercontent.com/91736791/216771367-e60e45fb-b300-4968-ba53-447320644328.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Teacher Dashboard
+> Here is `Teacher Dashboard`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![TDash](https://user-images.githubusercontent.com/91736791/216771523-1beeea36-a140-48e9-95a5-fb0fadd89872.png)
+> Teacher has access on,
+> * `Assignments Tab` : Can view and create assignments.
+> * `Submissions Tab` : Can view student's submissions.
+> * `Students Tab` : Can view students data.
 
-### `npm test`
+![TDash1](https://user-images.githubusercontent.com/91736791/216771947-22ee67d7-4cba-462d-8513-13167abb003a.png)
+>* Teacher's `name`, `email` and `role`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Profile](https://user-images.githubusercontent.com/91736791/216776807-da3aba23-9f89-4e7f-bbc3-e907a47dcba0.png)
 
-### `npm run build`
+## Teacher Dashboard - Assignments Tab
+> Teacher can `View`, `Create`, `Delete` Assignments.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![AssignmentTeacher](https://user-images.githubusercontent.com/91736791/216776876-983eef58-48ff-410b-9f5c-36e476b8a004.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Student Dashboard
+> Student has access on,
+> * `Assignments Tab` : Can view assignments and upload submissions.
+> * `Grades Tab` : Can view the grades of their submissions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![SDash](https://user-images.githubusercontent.com/91736791/216777051-3512d7f4-b54d-4d84-a4af-bf15eddc3b3e.png)
 
-### `npm run eject`
+## Student Dashboard - Assignments Tab
+> Student can `View` assignments, `Upload` & `Modify` their submissions.
+> Also, Students can upload only those assignment which are in `Active` state.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![SdashA](https://user-images.githubusercontent.com/91736791/216777383-14901b39-3fd2-4fa0-8199-10b366821eab.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Student Dashboard - Assignments Tab - Upload Action
+> Students can put `content` and `title` of submission.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Subm](https://user-images.githubusercontent.com/91736791/216777547-e9005c25-8531-4ca6-8fbc-26567fc0d7b7.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Teacher Dashboard - Submissions Tab
+> Teacher can `view submissions` submitted by students.
+> Also, Teacher can `give grades` to the submissions.
 
-## Learn More
+![Tcheck2](https://user-images.githubusercontent.com/91736791/216777743-0596039f-4805-4667-816c-ef72646bf6d3.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Teacher Dashboard - Submissions Tab - Give Grades Action
+> Teacher can put `grades` for submission.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![GGrades](https://user-images.githubusercontent.com/91736791/216777907-f42d145c-9410-4f77-a51e-a9e85c22a166.png)
 
-### Code Splitting
+## Student Dashboard - Grades Tab
+> Students can `view grades` given by teacher on their submission.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![TCheck](https://user-images.githubusercontent.com/91736791/216777660-f66ac8c8-481f-4b8f-9655-4c9322dfd0d5.png)
