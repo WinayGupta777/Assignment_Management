@@ -1,5 +1,9 @@
 const initialState = {
-    userInfo: []
+    userInfo: {
+        name: 'Namor',
+        email: 'nmr@g.com',
+        role: 'fishKing'
+    }
 };
 
 const userReducer = (state=initialState , action ) => {
