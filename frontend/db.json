@@ -18,43 +18,30 @@
   "assignments": [
     {
       "title": "Assignment 1",
-      "description": "Complete Today !!",
-      "duedate": "2023-01-26",
+      "description": "Write program to ...",
+      "duedate": "2023-02-10",
       "status": "true",
       "teacher": "Dr. Nikhil",
       "id": 1
     },
     {
       "title": "Assignment 2",
-      "description": "No man",
-      "duedate": "2023-01-31",
-      "status": "false",
+      "description": "Implement CORS with ...",
+      "duedate": "2023-02-20",
+      "status": "true",
       "teacher": "Dr. Nikhil",
       "id": 2
     },
     {
       "title": "Assignment 3",
-      "description": "Hello Ji How Are you ???",
-      "duedate": "2023-01-28",
-      "status": "true",
+      "description": "Make interactive program ...",
+      "duedate": "2023-03-04",
+      "status": "false",
       "teacher": "Dr. Nikhil",
       "id": 3
     }
   ],
   "submissions": [
-    {
-      "id": 1,
-      "subName": "Assignment  1",
-      "grades": "2",
-      "content": "Content uploaded.",
-      "doneBy": "Vinay Gupta"
-    },
-    {
-      "id": 3,
-      "subName": "Submission of 3rd",
-      "grades": "5",
-      "content": "Here I am",
-      "doneBy": "Vinay Gupta"
-    }
+
   ]
 }
