@@ -3,10 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import { Grade, ContentPaste } from '@mui/icons-material';
 
-const StudentDrawer = () => {
+const StudentDrawer = (props) => {
   const drawerWidth = 350;
   const navigate = useNavigate();
 
+  const onTabClicked = (key) => {
+    if (key === "assignment")
+      navigate(key);
+    else
+      navigate(key);
+
+    props.selectTab();
+  }
   return (
     <Drawer
       variant='permanent'
@@ -20,7 +28,7 @@ const StudentDrawer = () => {
       <Box>
         <List>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => navigate("assignment")}>
+            <ListItemButton onClick={() => onTabClicked("assignment")}>
               <ListItemIcon>
                 <ContentPaste />
               </ListItemIcon>
@@ -31,7 +39,7 @@ const StudentDrawer = () => {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton onClick={() => navigate("grades")} >
+            <ListItemButton onClick={() => onTabClicked("grades")} >
               <ListItemIcon>
                 <Grade />
               </ListItemIcon>

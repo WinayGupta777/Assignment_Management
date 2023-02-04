@@ -7,7 +7,7 @@ import EmptyPage from '../EmptyPage';
 import { useSelector } from 'react-redux';
 
 const StudentDashboard = () => {
-    const selectedTab = false;
+    const [openTab, setOpenTab] = React.useState(false);
     const currentLoggedUser = useSelector(
         (state) => state.userReducer.userInfo
     );
@@ -36,9 +36,9 @@ const StudentDashboard = () => {
                     </Tooltip>
                 </Toolbar>
             </AppBar>
-            <StudentDrawer />
+            <StudentDrawer selectTab={()=>setOpenTab(true)} />
 
-            {selectedTab ? <Outlet /> : <EmptyPage />}
+            {openTab ? <Outlet /> : <EmptyPage />}
         </Box>
     )
 }
