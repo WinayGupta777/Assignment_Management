@@ -2,15 +2,15 @@
   "users": [
     {
       "id": 1,
-      "name": "Abc",
-      "email": "abc@g.com",
+      "name": "Dr. Nikhil G",
+      "email": "nik@gmail.com",
       "password": "admin",
       "role": "teacher"
     },
     {
       "id": 2,
-      "name": "Pqr",
-      "email": "pqr@g.com",
+      "name": "Rahul Roy",
+      "email": "rahul@gmail.com",
       "password": "admin123",
       "role": "student"
     }
